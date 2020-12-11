@@ -6,6 +6,7 @@ export default function useUser() {
   const { token } = useAuth();
   const [user, setUser] = useState(null);
 
+  // Get user data
   const { data, error, mutate } = useSWR(
     token ? `${process.env.REACT_APP_BACKEND}/me.php` : null,
     url =>

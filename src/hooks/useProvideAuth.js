@@ -18,6 +18,7 @@ export default function useProvideAuth() {
     setIsLogin(false);
   };
 
+  // Refresh token for persisting session
   const { data, error, isValidating } = useSWR(
     isLogin ? `${process.env.REACT_APP_BACKEND}/refresh-token.php` : null,
     url =>
@@ -45,7 +46,6 @@ export default function useProvideAuth() {
     // Sync all tabs on login or logout
     window.addEventListener('storage', e => {
       if (e.key === 'isLogin') {
-        console.log(e.newValue)
         setIsLogin(e.newValue);
       }
     });
