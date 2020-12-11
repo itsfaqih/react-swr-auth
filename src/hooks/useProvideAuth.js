@@ -26,7 +26,8 @@ export default function useProvideAuth() {
       }).then(res => res.json()),
     { 
       // Silently refresh token every expiry time
-      refreshInterval: 1000 * 60 * 15 
+      refreshInterval: 1000 * 60 * 15,
+      revalidateOnFocus: false
     }
   );
 
